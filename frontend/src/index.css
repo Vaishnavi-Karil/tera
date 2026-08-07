@@ -1,0 +1,54 @@
+body {
+    background-color: #0b1326;
+    color: #dae2fd;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tera-glow {
+    box-shadow: 0 0 20px rgba(192, 193, 255, 0.15);
+    border: 1px solid rgba(192, 193, 255, 0.3);
+}
+.ai-pulse {
+    animation: pulse-glow 4s infinite ease-in-out;
+}
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+.ai-glow-cyan {
+    box-shadow: 0 0 25px rgba(76, 215, 246, 0.08);
+    border: 1px solid rgba(76, 215, 246, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ai-glow-cyan:hover {
+    box-shadow: 0 0 35px rgba(76, 215, 246, 0.22);
+    border-color: rgba(76, 215, 246, 0.45);
+    background: rgba(255, 255, 255, 0.04);
+}
+.ai-glow-purple {
+    box-shadow: 0 0 25px rgba(251, 171, 255, 0.08);
+    border: 1px solid rgba(251, 171, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ai-glow-purple:hover {
+    box-shadow: 0 0 35px rgba(251, 171, 255, 0.22);
+    border-color: rgba(251, 171, 255, 0.45);
+    background: rgba(255, 255, 255, 0.04);
+}
+

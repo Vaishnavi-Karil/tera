@@ -1,0 +1,382 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .ai-glow-purple {
+            box-shadow: 0 0 80px -10px rgba(128, 131, 255, 0.15);
+        }
+        .ai-glow-cyan {
+            box-shadow: 0 0 80px -10px rgba(76, 215, 246, 0.15);
+        }
+        body {
+            background-color: #0b1326;
+            background-image: radial-gradient(circle at 0% 0%, rgba(128, 131, 255, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, rgba(76, 215, 246, 0.05) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed-variant": "#7c008e",
+                        "on-tertiary": "#580065",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container-lowest": "#060e20",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#e14ef6",
+                        "surface-bright": "#31394d",
+                        "outline-variant": "#464554",
+                        "tertiary": "#fbabff",
+                        "on-secondary-fixed": "#001f26",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00424e",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-high": "#222a3d",
+                        "secondary-container": "#03b5d3",
+                        "primary": "#c0c1ff",
+                        "surface": "#0b1326",
+                        "on-tertiary-container": "#4d0059",
+                        "on-primary": "#1000a9",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-tertiary-fixed": "#36003e",
+                        "secondary": "#4cd7f6",
+                        "on-primary-container": "#0d0096",
+                        "primary-container": "#8083ff",
+                        "outline": "#908fa0",
+                        "surface-container-highest": "#2d3449",
+                        "on-surface": "#dae2fd",
+                        "inverse-on-surface": "#283044",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#acedff",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#c0c1ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "inverse-primary": "#494bd6",
+                        "tertiary-fixed": "#ffd6fd",
+                        "surface-dim": "#0b1326",
+                        "tertiary-fixed-dim": "#fbabff",
+                        "background": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-background": "#dae2fd",
+                        "surface-container-low": "#131b2e",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-variant": "#2d3449"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-padding-mobile": "20px",
+                        "container-padding-desktop": "40px",
+                        "glass-padding": "32px",
+                        "bento-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "mono-technical": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "mono-technical": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 z-40 h-full w-64 rounded-r-xl bg-surface/40 backdrop-blur-2xl border-r border-white/10 shadow-2xl">
+<div class="p-8">
+<h1 class="font-display-lg text-display-lg tracking-tight text-primary">Tera</h1>
+<p class="text-on-surface-variant/70 font-body-md text-sm">AI Sanctuary</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body-md">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-body-md">Chat</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-body-md">Reflections</span>
+</a>
+<!-- Active Tab: My Assistant -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary font-bold border-r-2 border-primary bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-body-md">My Assistant</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl scale-95 hover:scale-100 duration-200 shadow-lg shadow-primary/20">
+                New Session
+            </button>
+<div class="mt-8 flex items-center gap-3">
+<img alt="User profile photo" class="w-10 h-10 rounded-full border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Vhh_W3TT3ahFRayVEro892r1ncIceAM0RU9hfAFVHu0MUdV9-jlAsgXDSKZ64at8zhDQu1ffI-KyM0xR4K1AyZs4XhIUmHjuxM9VnQ4IvyDbdZVjGSoVT55z3H7s3edbarv_rA19FGGG7TLwoiq8MwQMVRCINPBJIG_gKR1oaP5C_L-5x8VAzAoqU7x2nFFBxeFlsS5aP9mvbRRAv_gVHGcBd_FGv70EQ_d7NP9xA2Dk24Pm97B84DIELNxvbA_908qB3Ia3pFjK">
+<div class="overflow-hidden">
+<p class="text-on-surface font-semibold truncate">Aryan Sharma</p>
+<p class="text-on-surface-variant/50 text-xs">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen flex flex-col relative overflow-hidden">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-spacing-container-desktop h-16 bg-transparent flat no shadows z-30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md text-primary">My Assistant</h2>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0g7CLGnDHWpnTKVQWUtjLLBhm7OSQ72BYVmDEXz64rLPCCEVsWm7EIhr_QJ8jXgGatcS-iQsu-VtViPxDfdTrztz01eq2nX0qUh7zfOXI8yqJpB5F-Bhr9yOBlkiDsf7q9S5HBj6G0WsQvxsuEUiipMgYOUIZ73_zr7DCairOuFmGYflTY-nc2mG2bjei4tWZrx27gQ2pE8hyD0SRzb8t0dZ1SFyTHjtx486KzdZ-QUpSN6AIpHMFI7_GkFltjydNf0d2k0Y9tQyf">
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<section class="flex-1 p-spacing-container-desktop pt-8 custom-scrollbar">
+<!-- Header Context -->
+<div class="mb-10">
+<p class="font-mono-technical text-primary tracking-widest uppercase text-xs mb-2">Daily Overview</p>
+<h3 class="font-display-lg text-display-lg text-on-surface">Good Morning, Aryan.</h3>
+<p class="text-on-surface-variant text-body-lg max-w-2xl mt-4 opacity-80">Your sanctuary is optimized for focus today. I've prepared your agenda and balanced your cognitive load.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-bento-gap auto-rows-[180px] w-full">
+<!-- Today's Focus Card (Large Widget) -->
+<div class="col-span-12 md:col-span-8 row-span-2 glass-card rounded-3xl p-glass-padding flex flex-col justify-between overflow-hidden relative ai-glow-purple max-w-full">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-primary/40 text-6xl" data-icon="lightbulb">lightbulb</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-label-caps">Priority Focus</span>
+</div>
+<h4 class="font-headline-md text-3xl text-on-surface mb-4">Finalize the 'Sanctuary' UI Framework</h4>
+<p class="text-on-surface-variant max-w-md">Collaborative session with the design team at 2:00 PM. AI research insights are ready for review.</p>
+</div>
+<div class="flex items-center gap-4 mt-8">
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-xl hover:shadow-[0_0_20px_rgba(192,193,255,0.4)] transition-all">
+                            Start Session
+                        </button>
+<button class="px-6 py-3 border border-white/10 rounded-xl hover:bg-white/5 transition-all">
+                            View Resources
+                        </button>
+</div>
+</div>
+<!-- Productivity Score (Glowing Ring) -->
+<div class="col-span-12 md:col-span-4 row-span-2 glass-card rounded-3xl p-glass-padding flex flex-col items-center justify-center text-center ai-glow-cyan">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Progress Ring SVG -->
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary drop-shadow-[0_0_10px_rgba(76,215,246,0.6)]" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="110" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-on-surface">82</span>
+<span class="text-xs font-label-caps text-on-surface-variant">Flow Score</span>
+</div>
+<div class="absolute inset-0 rounded-full bg-secondary/10 blur-2xl animate-pulse-ring"></div>
+</div>
+<div class="mt-6">
+<p class="text-on-surface font-semibold">Peak Performance</p>
+<p class="text-on-surface-variant text-sm mt-1">You are 15% more focused than yesterday.</p>
+</div>
+</div>
+<!-- To-Do List Card -->
+<div class="col-span-12 md:col-span-5 row-span-2 glass-card rounded-3xl p-glass-padding flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline-md text-lg">Daily Rituals</h4>
+<span class="material-symbols-outlined text-on-surface-variant/50" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-2">
+<label class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<input checked="" class="peer hidden" type="checkbox">
+<div class="w-6 h-6 border-2 border-primary/30 rounded-lg peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm peer-checked:block hidden" data-icon="check">check</span>
+</div>
+</div>
+<span class="text-on-surface-variant peer-checked:line-through peer-checked:opacity-50 transition-all">Morning mindfulness (10m)</span>
+</label>
+<label class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<input class="peer hidden" type="checkbox">
+<div class="w-6 h-6 border-2 border-primary/30 rounded-lg peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm peer-checked:block hidden" data-icon="check">check</span>
+</div>
+</div>
+<span class="text-on-surface group-hover:text-primary transition-colors">Review Q3 Vision document</span>
+</label>
+<label class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<input class="peer hidden" type="checkbox">
+<div class="w-6 h-6 border-2 border-primary/30 rounded-lg peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm peer-checked:block hidden" data-icon="check">check</span>
+</div>
+</div>
+<span class="text-on-surface group-hover:text-primary transition-colors">Order new workstation plant</span>
+</label>
+<label class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<input class="peer hidden" type="checkbox">
+<div class="w-6 h-6 border-2 border-primary/30 rounded-lg peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm peer-checked:block hidden" data-icon="check">check</span>
+</div>
+</div>
+<span class="text-on-surface group-hover:text-primary transition-colors">Sync with Sarah on branding</span>
+</label>
+</div>
+<button class="mt-6 flex items-center gap-2 text-primary font-semibold text-sm hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Add Task
+                    </button>
+</div>
+<!-- Calendar Widget -->
+<div class="col-span-12 md:col-span-4 row-span-2 glass-card rounded-3xl p-glass-padding">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h4 class="font-headline-md text-lg">Agenda</h4>
+<p class="text-xs text-on-surface-variant">Wednesday, Oct 24</p>
+</div>
+<button class="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+</button>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 items-start relative pl-4 border-l border-primary/40">
+<div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-primary rounded-full"></div>
+<div>
+<p class="text-xs font-mono-technical text-primary uppercase">10:00 - 11:00 AM</p>
+<p class="text-sm font-semibold text-on-surface mt-1">Internal Sync - UI Engine</p>
+</div>
+</div>
+<div class="flex gap-4 items-start relative pl-4 border-l border-white/10">
+<div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-white/20 rounded-full"></div>
+<div>
+<p class="text-xs font-mono-technical text-on-surface-variant uppercase">02:00 - 03:30 PM</p>
+<p class="text-sm font-semibold text-on-surface/80 mt-1">Client Presentation</p>
+</div>
+</div>
+<div class="flex gap-4 items-start relative pl-4 border-l border-white/10">
+<div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-white/20 rounded-full"></div>
+<div>
+<p class="text-xs font-mono-technical text-on-surface-variant uppercase">05:00 PM</p>
+<p class="text-sm font-semibold text-on-surface/80 mt-1">Evening Reflection</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Small Widget: Mood/Atmosphere -->
+<div class="col-span-12 md:col-span-3 row-span-1 glass-card rounded-3xl p-6 flex flex-col justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-secondary" data-icon="cloud_queue">cloud_queue</span>
+<div>
+<p class="text-xs font-label-caps text-on-surface-variant uppercase">Atmosphere</p>
+<p class="text-lg font-bold text-on-surface">Rainy Studio</p>
+</div>
+</div>
+<!-- Secondary Small Widget: Quick Chat AI -->
+<div class="col-span-12 md:col-span-3 row-span-1 glass-card rounded-3xl p-6 flex items-center gap-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="bolt">bolt</span>
+</div>
+<div>
+<p class="text-sm font-bold">Quick Ask</p>
+<p class="text-xs text-on-surface-variant">Instant AI support</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating AI Input Overlay -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-2xl px-6 z-50 max-w-[calc(100vw-18rem)]">
+<div class="glass-card rounded-full p-2 flex items-center shadow-2xl border-white/20 group focus-within:ring-2 focus-within:ring-primary/40 transition-all">
+<div class="flex-1 px-6">
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50" placeholder="Ask Tera anything..." type="text">
+</div>
+<button class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Mesh Gradients -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] opacity-30 overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[0%] left-[-5%] w-[30%] h-[30%] bg-secondary/20 rounded-full blur-[100px]"></div>
+</div>
+<script>
+        // Micro-interaction for checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.closest('label').querySelector('span');
+                if (this.checked) {
+                    label.classList.add('line-through', 'opacity-50');
+                } else {
+                    label.classList.remove('line-through', 'opacity-50');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

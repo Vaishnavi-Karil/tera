@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tera | AI Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        body {
+            background-color: #0b1326;
+            overflow-x: hidden;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(1.1); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#7c008e",
+                      "on-tertiary": "#580065",
+                      "inverse-surface": "#dae2fd",
+                      "surface-container-lowest": "#060e20",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#e14ef6",
+                      "surface-bright": "#31394d",
+                      "outline-variant": "#464554",
+                      "tertiary": "#fbabff",
+                      "on-secondary-fixed": "#001f26",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#00424e",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "on-primary-fixed": "#07006c",
+                      "surface-container-high": "#222a3d",
+                      "secondary-container": "#03b5d3",
+                      "primary": "#c0c1ff",
+                      "surface": "#0b1326",
+                      "on-tertiary-container": "#4d0059",
+                      "on-primary": "#1000a9",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "on-tertiary-fixed": "#36003e",
+                      "secondary": "#4cd7f6",
+                      "on-primary-container": "#0d0096",
+                      "primary-container": "#8083ff",
+                      "outline": "#908fa0",
+                      "surface-container-highest": "#2d3449",
+                      "on-surface": "#dae2fd",
+                      "inverse-on-surface": "#283044",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#acedff",
+                      "on-secondary": "#003640",
+                      "surface-tint": "#c0c1ff",
+                      "on-surface-variant": "#c7c4d7",
+                      "inverse-primary": "#494bd6",
+                      "tertiary-fixed": "#ffd6fd",
+                      "surface-dim": "#0b1326",
+                      "tertiary-fixed-dim": "#fbabff",
+                      "background": "#0b1326",
+                      "surface-container": "#171f33",
+                      "on-background": "#dae2fd",
+                      "surface-container-low": "#131b2e",
+                      "primary-fixed": "#e1e0ff",
+                      "surface-variant": "#2d3449"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-padding-mobile": "20px",
+                      "container-padding-desktop": "40px",
+                      "glass-padding": "32px",
+                      "bento-gap": "24px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "mono-technical": ["Geist"],
+                      "label-caps": ["Geist"],
+                      "display-lg-mobile": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "mono-technical": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="text-on-surface font-body-md selection:bg-primary/30">
+<!-- Background Orbs -->
+<div class="glow-orb bg-primary w-[500px] h-[500px] -top-48 -left-48 animate-pulse-slow"></div>
+<div class="glow-orb bg-secondary w-[400px] h-[400px] bottom-0 right-0 animate-pulse-slow" style="animation-delay: -2s;"></div>
+<div class="glow-orb bg-tertiary w-[300px] h-[300px] top-1/2 left-1/3 animate-pulse-slow" style="animation-delay: -4s;"></div>
+<!-- Side Navigation Bar -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 z-40 bg-surface/40 backdrop-blur-2xl h-full w-64 rounded-r-xl border-r border-white/10 shadow-2xl">
+<div class="p-8">
+<h1 class="font-display-lg text-display-lg tracking-tight text-primary">Tera</h1>
+<p class="text-on-surface-variant/70 text-sm mt-1">AI Sanctuary</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-8">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-primary font-bold border-r-2 border-primary hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body-md text-body-md">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-body-md text-body-md">Chat</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-body-md text-body-md">Uljhanein</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-body-md text-body-md">Mera Sahayak</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full py-4 glass-card rounded-2xl flex items-center justify-center gap-2 text-primary font-bold hover:scale-95 duration-200 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Session
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen relative z-10">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-spacing-container-desktop h-16 bg-transparent">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md text-primary">Dashboard</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity duration-300" data-icon="notifications">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User Avatar" data-alt="A close-up portrait of a professional young man with a friendly expression, set against a blurred indoor environment with soft, warm lighting. The aesthetic is clean and modern, using a natural color palette that emphasizes clarity and calm, perfectly fitting the high-end AI sanctuary brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjwarQRwlnylO5FB4DQRJXtJAOKWa8C4Z_Yjmx_aO35OFeqJFfo9Vp4XTgMw0UvPcM9gRfeH7xPCgBmUQVL95iXeIMqxzLrm4YVkt6QFgizIHs63mMnKayWiXMuTjyE6JNjDm_c9yIAmBiNhKLGYNfQ6T3ZB1MiRrg8TE2rJb94TikskLu5TaLDGVjSjz6eCgW_wk0m_PkfHMvepl3kn-FRmbmOTCdVx2eKXEIHGvFEnmVzXJQJwmB3GQCcVTi4JD6QEZqWHIXwhYK"/>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="p-spacing-container-desktop grid grid-cols-12 gap-bento-gap max-w-7xl mx-auto">
+<!-- Hero Bento Box (8 cols) -->
+<section class="col-span-12 lg:col-span-8 glass-card rounded-[32px] p-glass-padding relative overflow-hidden group">
+
+<div class="relative z-10 h-full flex flex-col justify-between min-h-[300px]">
+<div>
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary-fixed-dim px-3 py-1 rounded-full text-label-caps font-label-caps mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            AI SANCTUARY ACTIVE
+                        </div>
+<h2 class="font-display-lg text-display-lg text-on-surface max-w-lg">Namaste, Aryan. Your mind is like a clear sky today.</h2>
+</div>
+<div class="flex items-center gap-6 mt-8">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform">
+                            Continue Reflection
+                        </button>
+<p class="text-on-surface-variant font-mono-technical">7:42 AM • Tuesday, Oct 24</p>
+</div>
+</div>
+</section>
+<!-- Current Mood Widget (4 cols) -->
+<section class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-[32px] p-glass-padding flex flex-col items-center justify-center text-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant/60 mb-4 uppercase tracking-widest">Current Mood</span>
+<div class="relative">
+<div class="w-24 h-24 rounded-full bg-secondary/20 flex items-center justify-center mb-6 relative">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="waves" style="font-variation-settings: 'FILL' 1;">waves</span>
+<div class="absolute inset-0 rounded-full border-2 border-secondary/30 animate-ping"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-secondary">Calm &amp; Productive</h3>
+<p class="text-on-surface-variant mt-2 max-w-[200px]">Your focus flow has been consistent for 45 minutes.</p>
+</section>
+<!-- Daily Progress Widget (4 cols) -->
+<section class="col-span-12 md:col-span-6 lg:col-span-4 glass-card rounded-[32px] p-glass-padding">
+<div class="flex justify-between items-center mb-6">
+<span class="text-label-caps font-label-caps text-on-surface-variant/60 uppercase">Daily Progress</span>
+<span class="text-primary font-mono-technical">70%</span>
+</div>
+<div class="space-y-6">
+<div class="relative h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary rounded-full shadow-[0_0_10px_rgba(192,193,255,0.5)]" style="width: 70%"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-white/5 rounded-2xl">
+<span class="text-label-caps font-label-caps text-on-surface-variant/50">Mindfulness</span>
+<div class="text-body-lg font-bold text-on-surface mt-1">12 min</div>
+</div>
+<div class="p-4 bg-white/5 rounded-2xl">
+<span class="text-label-caps font-label-caps text-on-surface-variant/50">Journaling</span>
+<div class="text-body-lg font-bold text-on-surface mt-1">3 entries</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Journal Entry Prompt (8 cols) -->
+<section class="col-span-12 lg:col-span-8 glass-card rounded-[32px] p-glass-padding overflow-hidden relative">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-tertiary text-4xl opacity-40" data-icon="edit_note">edit_note</span>
+</div>
+<div class="max-w-xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Daily Reflection</h3>
+<p class="text-on-surface-variant mb-8 font-body-md">What is one thing that made you smile today, even if it was just for a second?</p>
+<div class="relative group">
+<textarea class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-on-surface focus:outline-none focus:ring-2 focus:ring-tertiary/50 transition-all min-h-[140px] placeholder:text-on-surface-variant/30" placeholder="Type your thoughts here..."></textarea>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<button class="bg-tertiary/20 text-tertiary hover:bg-tertiary hover:text-on-tertiary px-4 py-2 rounded-lg text-sm font-bold transition-all">
+                                Save Reflection
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Conversations (12 cols) -->
+<section class="col-span-12 glass-card rounded-[32px] p-glass-padding">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Conversations</h3>
+<button class="text-primary hover:underline text-sm font-bold">View History</button>
+</div>
+<div class="space-y-3">
+<!-- Conversation Row 1 -->
+<div class="group flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-transparent hover:border-white/10 hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span>
+</div>
+<div>
+<h4 class="font-body-lg font-bold text-on-surface">Exploring Morning Anxiety</h4>
+<p class="text-on-surface-variant text-sm">34 messages • Yesterday at 10:20 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs">Insightful</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Conversation Row 2 -->
+<div class="group flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-transparent hover:border-white/10 hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb">lightbulb</span>
+</div>
+<div>
+<h4 class="font-body-lg font-bold text-on-surface">Weekly Goal Alignment</h4>
+<p class="text-on-surface-variant text-sm">12 messages • Oct 22, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs">Productivity</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Conversation Row 3 -->
+<div class="group flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-transparent hover:border-white/10 hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-body-lg font-bold text-on-surface">Deep Calm Meditation Help</h4>
+<p class="text-on-surface-variant text-sm">45 messages • Oct 21, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs">Calm</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Padding -->
+<div class="h-12"></div>
+</main>
+<!-- FAB (Suppressed based on context guidelines, but provided if needed for task alignment) -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary text-on-primary rounded-full shadow-[0_0_20px_rgba(192,193,255,0.4)] flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="chat">chat</span>
+</button>
+<script>
+        // Subtle micro-interactions
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simulating some content update
+        console.log("Tera AI Sanctuary dashboard initialized for user: Aryan");
+    </script>
+</body></html>

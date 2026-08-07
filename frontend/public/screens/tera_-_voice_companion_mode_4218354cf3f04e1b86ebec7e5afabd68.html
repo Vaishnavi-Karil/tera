@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tera | Voice Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .tera-glow {
+            box-shadow: 0 0 20px rgba(192, 193, 255, 0.15);
+            border: 1px solid rgba(192, 193, 255, 0.3);
+        }
+        .voice-pulse {
+            animation: voice-ripple 2s infinite ease-out;
+        }
+        @keyframes voice-ripple {
+            0% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 0 0 rgba(192, 193, 255, 0.4); }
+            70% { transform: scale(1.1); opacity: 0.2; box-shadow: 0 0 0 40px rgba(192, 193, 255, 0); }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .waveform-bar {
+            animation: waveform 1.2s ease-in-out infinite;
+        }
+        @keyframes waveform {
+            0%, 100% { height: 8px; }
+            50% { height: 24px; }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#7c008e",
+                      "on-tertiary": "#580065",
+                      "inverse-surface": "#dae2fd",
+                      "surface-container-lowest": "#060e20",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#e14ef6",
+                      "surface-bright": "#31394d",
+                      "outline-variant": "#464554",
+                      "tertiary": "#fbabff",
+                      "on-secondary-fixed": "#001f26",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#00424e",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "on-primary-fixed": "#07006c",
+                      "surface-container-high": "#222a3d",
+                      "secondary-container": "#03b5d3",
+                      "primary": "#c0c1ff",
+                      "surface": "#0b1326",
+                      "on-tertiary-container": "#4d0059",
+                      "on-primary": "#1000a9",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "on-tertiary-fixed": "#36003e",
+                      "secondary": "#4cd7f6",
+                      "on-primary-container": "#0d0096",
+                      "primary-container": "#8083ff",
+                      "outline": "#908fa0",
+                      "surface-container-highest": "#2d3449",
+                      "on-surface": "#dae2fd",
+                      "inverse-on-surface": "#283044",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#acedff",
+                      "on-secondary": "#003640",
+                      "surface-tint": "#c0c1ff",
+                      "on-surface-variant": "#c7c4d7",
+                      "inverse-primary": "#494bd6",
+                      "tertiary-fixed": "#ffd6fd",
+                      "surface-dim": "#0b1326",
+                      "tertiary-fixed-dim": "#fbabff",
+                      "background": "#0b1326",
+                      "surface-container": "#171f33",
+                      "on-background": "#dae2fd",
+                      "surface-container-low": "#131b2e",
+                      "primary-fixed": "#e1e0ff",
+                      "surface-variant": "#2d3449"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-padding-mobile": "20px",
+                      "container-padding-desktop": "40px",
+                      "glass-padding": "32px",
+                      "bento-gap": "24px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "mono-technical": ["Geist"],
+                      "label-caps": ["Geist"],
+                      "display-lg-mobile": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "mono-technical": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface overflow-hidden">
+<!-- Always-On Voice Connection Status Bar -->
+<div class="fixed top-0 left-64 right-0 z-50 bg-primary/10 backdrop-blur-md border-b border-primary/20 px-10 py-2 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</div>
+<span class="text-xs font-label-caps tracking-widest text-primary">Always-On Voice Connection Active</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-mono-technical text-on-surface-variant/60 uppercase">Spatial Audio: Enabled</span>
+<span class="text-[10px] font-mono-technical text-on-surface-variant/60 uppercase">Latency: 12ms</span>
+</div>
+</div>
+<!-- Side Navigation -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 z-40 bg-surface/40 backdrop-blur-2xl h-full w-64 rounded-r-xl border-r border-white/10 shadow-2xl">
+<div class="p-spacing-unit * 4 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8 px-4 py-6 mt-10">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h1 class="font-display-lg text-[24px] tracking-tight text-primary leading-tight">Tera</h1>
+<p class="text-on-surface-variant/60 text-xs font-label-caps uppercase tracking-widest">AI Sanctuary</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto custom-scrollbar px-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md text-body-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-2 border-primary hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">mic</span>
+<span class="font-body-md text-body-md">Voice Session</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant/70 hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-body-md text-body-md">Insights</span>
+</a>
+<div class="mt-8 pt-6 border-t border-white/5 px-4">
+<p class="text-xs font-label-caps text-on-surface-variant/40 mb-4 tracking-widest">VOICE LOGS</p>
+<div class="space-y-4 opacity-50">
+<div class="group cursor-pointer">
+<p class="text-sm font-medium text-on-surface-variant/80 group-hover:text-primary transition-colors truncate">"How's my sleep data?"</p>
+<p class="text-[10px] text-on-surface-variant/40 uppercase">10 mins ago</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-sm font-medium text-on-surface-variant/80 group-hover:text-primary transition-colors truncate">"Start meditation"</p>
+<p class="text-[10px] text-on-surface-variant/40 uppercase">Yesterday</p>
+</div>
+</div>
+</div>
+</nav>
+<div class="mt-auto p-4 border-t border-white/5">
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-white/10 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">settings_voice</span>
+                Audio Settings
+            </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 h-screen flex flex-col relative pt-14">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-spacing-container-desktop h-16 bg-transparent z-30">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary ai-pulse"></div>
+<span class="text-sm font-label-caps text-secondary/80">Spatial Awareness Active</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20 ring-4 ring-primary/5">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A high-end professional headshot of a person in a minimalist environment. Soft cinematic lighting with blue and violet undertones to match the AI sanctuary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDswykIKSPyr9CUaZ5rC6vHv303aFYM8YzDbc2FPrTVFK9542avAohcqDTPSQU2cqC4Gk_iSfM_Mb7JhxjuvU8RaNzov4R4E0B5iJn0lqJIeGuiTrFUnbUHKI4inM6U1jM277KXgxLA1jGaiDR2J1c9QL9TqCKvKPmsmR-ZOT8x8oaNZzt5ZmTQ5xPoJkKYbn5kCiQZvT1YJCbY3YXbVJllWuEwhLyHNYI9xtLujgRvYD9ikeY-DYxGsDmDFARjwDyImk4wcSJzn-T8"/>
+</div>
+</div>
+</header>
+<!-- Voice Focal Point -->
+<div class="flex-1 flex flex-col items-center justify-center px-10 pb-20 relative overflow-hidden">
+<!-- Central Audio Visualization & Avatar -->
+<div class="relative mb-12">
+<div class="voice-pulse absolute inset-0 rounded-full bg-primary/20 scale-150"></div>
+<div class="voice-pulse absolute inset-0 rounded-full bg-primary/10 scale-125" style="animation-delay: 0.5s"></div>
+<div class="relative w-48 h-48 rounded-full bg-gradient-to-tr from-primary to-secondary p-[2px] shadow-[0_0_50px_rgba(192,193,255,0.3)]">
+<div class="w-full h-full rounded-full bg-surface flex flex-col items-center justify-center overflow-hidden relative">
+<span class="material-symbols-outlined text-primary text-6xl">graphic_eq</span>
+<!-- Waveform Animation Overlaid -->
+<div class="absolute bottom-10 flex items-center gap-1">
+<div class="waveform-bar w-1 bg-primary/60 rounded-full" style="animation-delay: 0.1s"></div>
+<div class="waveform-bar w-1 bg-primary/80 rounded-full" style="animation-delay: 0.3s"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full" style="animation-delay: 0.2s"></div>
+<div class="waveform-bar w-1 bg-primary/80 rounded-full" style="animation-delay: 0.4s"></div>
+<div class="waveform-bar w-1 bg-primary/60 rounded-full" style="animation-delay: 0.1s"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Play/Pause Toggle -->
+<button class="mb-12 group relative flex flex-col items-center" id="audioToggle">
+<div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-2xl hover:bg-primary-container transition-all active:scale-95 tera-glow">
+<span class="material-symbols-outlined text-4xl fill-1" id="toggleIcon">pause</span>
+</div>
+<p class="mt-4 font-label-caps text-xs tracking-[0.2em] text-primary" id="toggleStatus">LISTENING...</p>
+</button>
+<!-- Transcription Area (Voice Command Log) -->
+<div class="w-full max-w-2xl text-center px-6">
+<p class="text-on-surface-variant/40 text-xs font-label-caps mb-4 uppercase tracking-widest">Live Transcription</p>
+<div class="glass-card p-8 rounded-3xl min-h-[120px] flex items-center justify-center">
+<p class="text-display-lg-mobile md:text-headline-md text-on-surface leading-relaxed italic" id="transcription">
+                    "I'm feeling a bit overwhelmed with the new project launch..."
+                </p>
+</div>
+</div>
+<!-- Subtle AI Response Display -->
+<div class="mt-8 max-w-xl text-center">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-label-caps text-secondary/60 tracking-widest">TERA RESPONDING</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">
+                I understand. Let's adjust our plan. Shall we hold the meditation until after your audit?
+            </p>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[160px] pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none"></div>
+</main>
+<script>
+    const toggleBtn = document.getElementById('audioToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleStatus = document.getElementById('toggleStatus');
+    const transcription = document.getElementById('transcription');
+    const pulses = document.querySelectorAll('.voice-pulse');
+    const waveBars = document.querySelectorAll('.waveform-bar');
+
+    let isListening = true;
+
+    toggleBtn.addEventListener('click', () => {
+        isListening = !isListening;
+        
+        if (isListening) {
+            toggleIcon.textContent = 'pause';
+            toggleStatus.textContent = 'LISTENING...';
+            toggleStatus.classList.replace('text-on-surface-variant/40', 'text-primary');
+            pulses.forEach(p => p.style.display = 'block');
+            waveBars.forEach(b => b.style.animationPlayState = 'running');
+            transcription.style.opacity = '1';
+        } else {
+            toggleIcon.textContent = 'play_arrow';
+            toggleStatus.textContent = 'MIC MUTED';
+            toggleStatus.classList.replace('text-primary', 'text-on-surface-variant/40');
+            pulses.forEach(p => p.style.display = 'none');
+            waveBars.forEach(b => b.style.animationPlayState = 'paused');
+            transcription.style.opacity = '0.4';
+        }
+    });
+
+    // Mock live transcription update
+    const sentences = [
+        "How is the weather affecting my focus levels today?",
+        "Schedule a deep work block for the design audit.",
+        "Can you play some lo-fi beats for concentration?",
+        "I'm feeling much better after that breathing exercise."
+    ];
+    
+    let sentenceIndex = 0;
+    setInterval(() => {
+        if (isListening) {
+            sentenceIndex = (sentenceIndex + 1) % sentences.length;
+            transcription.style.opacity = '0';
+            setTimeout(() => {
+                transcription.textContent = `"${sentences[sentenceIndex]}"`;
+                transcription.style.opacity = '1';
+            }, 500);
+        }
+    }, 8000);
+</script>
+</body></html>

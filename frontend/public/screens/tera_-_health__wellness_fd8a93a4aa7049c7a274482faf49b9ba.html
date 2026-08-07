@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tera | Health &amp; Wellness Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-glow-purple {
+            box-shadow: 0 0 80px -10px rgba(225, 78, 246, 0.15);
+        }
+        .ai-glow-cyan {
+            box-shadow: 0 0 80px -10px rgba(76, 215, 246, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#2d3449",
+                        "primary": "#c0c1ff",
+                        "on-primary-fixed": "#07006c",
+                        "surface-bright": "#31394d",
+                        "on-tertiary-fixed-variant": "#7c008e",
+                        "inverse-on-surface": "#283044",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-dim": "#0b1326",
+                        "surface": "#0b1326",
+                        "surface-container-lowest": "#060e20",
+                        "secondary": "#4cd7f6",
+                        "on-secondary": "#003640",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-container": "#8083ff",
+                        "surface-container-low": "#131b2e",
+                        "on-error": "#690005",
+                        "on-tertiary": "#580065",
+                        "on-background": "#dae2fd",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-container": "#4d0059",
+                        "on-primary": "#1000a9",
+                        "on-primary-container": "#0d0096",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#2d3449",
+                        "on-surface": "#dae2fd",
+                        "surface-tint": "#c0c1ff",
+                        "outline-variant": "#464554",
+                        "surface-container-high": "#222a3d",
+                        "secondary-container": "#03b5d3",
+                        "tertiary-fixed-dim": "#fbabff",
+                        "tertiary": "#fbabff",
+                        "outline": "#908fa0",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "secondary-fixed": "#acedff",
+                        "on-secondary-fixed": "#001f26",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#494bd6",
+                        "on-tertiary-fixed": "#36003e",
+                        "inverse-surface": "#dae2fd",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary-fixed": "#ffd6fd",
+                        "on-secondary-container": "#00424e",
+                        "background": "#0b1326",
+                        "tertiary-container": "#e14ef6",
+                        "on-primary-fixed-variant": "#2f2ebe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "glass-padding": "32px",
+                        "container-padding-mobile": "20px",
+                        "container-padding-desktop": "40px",
+                        "unit": "8px",
+                        "bento-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "mono-technical": ["Geist"],
+                        "label-caps": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "mono-technical": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col md:flex-row">
+<aside class="hidden md:flex flex-col h-screen w-80 bg-surface-container/20 backdrop-blur-2xl border-r border-white/5 p-6 gap-bento-gap sticky top-0 shrink-0">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary-fixed text-2xl" style="font-variation-settings: 'FILL' 1">spa</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Tera</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Your Digital Sanctuary</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-body-md">Relationship Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-md">Growth Hub</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 bg-primary/20 text-primary rounded-xl border border-primary/20 backdrop-blur-md transition-all active:translate-x-1 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">spa</span>
+<span class="font-body-md font-bold">Health &amp; Wellness</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-md">Chat</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-6 border-t border-white/5">
+<button class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-primary/80 to-secondary/80 text-on-primary-fixed font-bold text-body-md shadow-xl shadow-primary/10 hover:brightness-110 transition-all active:scale-95">
+                Breathe Deeply
+            </button>
+<div class="flex justify-between px-2 mt-4">
+<a class="text-on-surface-variant flex items-center gap-2 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+<span class="font-label-caps">Help</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-2 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">lock</span>
+<span class="font-label-caps">Privacy</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 min-w-0 relative overflow-y-auto">
+
+<header class="sticky top-0 z-50 bg-surface/10 backdrop-blur-xl border-b border-white/10 px-glass-padding py-4 flex justify-between items-center">
+<div class="md:hidden flex items-center gap-2">
+<h1 class="font-display-lg text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Tera</h1>
+</div>
+<div class="hidden md:block">
+<h2 class="font-headline-md text-headline-md text-on-surface">Health &amp; Wellness Sanctuary</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group hidden sm:block">
+<input class="bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 text-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all w-64" placeholder="Search insights..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a woman with a calm expression, soft studio lighting, high-end digital photography style. The background is a soft, out-of-focus gradient of deep blues and purples to match a futuristic sanctuary aesthetic. The lighting is ethereal and highlights her features with a gentle glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEHhmRU2YhPU8Bj91I-pMADv4y3PJ0p5hnRu14XiPtyps4tJ8StQVb4hldtc1zTtqd5jxUMQ4xQ7AnXJU99N4KdX6A5KdiRux-PfaCH2RmNGv3CmKNgQLctFmvYdHqScmedY-SjayMEygw1rRjzMeibava2xnbvwqV2lzMzim5Cc6GhKwXYYT5lndJe93ZNUBWGjUh7A42MFcYmmShfJR9dq0R0ZwS-eTOag4LW4bS9Hl5O9Khr40bEZE5Pc7DfglDsUFEjBlGagkL"/>
+</div>
+</div>
+</header>
+<div class="p-glass-padding max-w-7xl mx-auto space-y-bento-gap relative z-10">
+<section class="grid grid-cols-1 md:grid-cols-12 gap-bento-gap">
+<div class="md:col-span-8 glass-card rounded-[32px] p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden ai-glow-cyan group">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 text-secondary border border-secondary/20 mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps">AI INSIGHT</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-white mb-4">You're radiating balance today.</h3>
+<p class="font-body-lg text-on-surface-variant max-w-lg">Your vitals show optimal recovery. It's a perfect morning for a mindful Vinyasa flow or a high-protein nutrition boost.</p>
+</div>
+<div class="relative z-10 flex gap-4 mt-8">
+<button class="px-8 py-3 bg-white text-on-primary-fixed rounded-2xl font-bold hover:bg-secondary transition-all">Start Morning Flow</button>
+<button class="px-8 py-3 glass-card rounded-2xl font-bold hover:bg-white/10 transition-all border-white/20">View Plan</button>
+</div>
+<div class="absolute right-0 bottom-0 w-1/3 h-full opacity-20 pointer-events-none group-hover:scale-110 transition-transform duration-1000">
+
+</div>
+</div>
+<div class="md:col-span-4 glass-card rounded-[32px] p-8 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md">Daily Vitals</h4>
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Steps</span>
+<span class="text-primary font-bold">8,432 / 10k</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 84.32%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Active Calories</span>
+<span class="text-secondary font-bold">450 / 600</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 75%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Hydration</span>
+<span class="text-primary-container font-bold">1.8 / 2.5L</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 72%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-bento-gap">
+<div class="md:col-span-2 glass-card rounded-[32px] p-8 space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md">Gym &amp; Yoga Schedule</h4>
+<button class="text-primary font-label-caps hover:underline">VIEW CALENDAR</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<span class="text-label-caps text-on-surface-variant">10:30 AM</span>
+</div>
+<h5 class="font-headline-md text-lg mb-1 group-hover:text-primary transition-colors">Zen Yoga Flow</h5>
+<p class="text-body-md text-on-surface-variant mb-4">Sanctuary Studio A • 60 min</p>
+<button class="w-full py-2 rounded-xl border border-white/10 hover:bg-white/5 font-bold transition-all">Join Class</button>
+</div>
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-secondary/30 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 rounded-xl bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined">fitness_center</span>
+</div>
+<span class="text-label-caps text-on-surface-variant">05:00 PM</span>
+</div>
+<h5 class="font-headline-md text-lg mb-1 group-hover:text-secondary transition-colors">Strength Training</h5>
+<p class="text-body-md text-on-surface-variant mb-4">Main Floor • 45 min</p>
+<button class="w-full py-2 rounded-xl border border-white/10 hover:bg-white/5 font-bold transition-all">Join Session</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-[32px] p-8 flex flex-col ai-glow-purple">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">nutrition</span>
+<h4 class="font-headline-md text-headline-md">Nutrition AI</h4>
+</div>
+<div class="flex-1 flex flex-col justify-center text-center p-6 bg-surface-container-lowest/50 rounded-2xl border border-white/5 mb-6">
+<p class="text-on-surface-variant font-body-md italic mb-4">"Tera, I just had a bowl of quinoa and roasted chickpeas."</p>
+<button class="flex items-center justify-center gap-2 mx-auto px-6 py-2 rounded-full bg-tertiary/20 text-tertiary border border-tertiary/20 hover:bg-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-sm">mic</span>
+<span class="font-label-caps">LOG MEAL</span>
+</button>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-caps text-on-surface-variant">WHAT I MADE TODAY</h5>
+<div class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+<img alt="Salad" class="w-full h-full object-cover" data-alt="A vibrant and colorful Mediterranean salad bowl with fresh greens, feta cheese, olives, and chickpeas, shot from a high angle with professional food photography lighting. The aesthetic is clean, healthy, and premium, with soft bokeh in the background. Colors are saturated and fresh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3h8sQwht06vjGoZ4yFnTfNZWRYyCWu8LS0MQWTfhYWKtOhmUvIBGxzxivOyFcDo1OgTG2cRcF6dyNEfto4DgZVOhub-xbKY0nAeQ46VToiy0BhFnBx8IjQ2kHBAD4v_y0eA6GEVoF7CAqcYlEM4Nvqq3tRhilWr9PF_rbzrI2kdyj9B_Biz8JU7l2E83ZkDdwnt5HkM_JJtE1DZclJ1LODlROy0EzttMM6Tl2ym07caYWeyWqIsH_HFImO6oWVgD-vcEWhQkqqoYQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-body-md truncate">Avocado Power Bowl</p>
+<p class="text-xs text-on-surface-variant">420 kcal • logged 2h ago</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h4 class="font-headline-md text-headline-md">Healthy Recipe Suggestions</h4>
+<p class="text-on-surface-variant">Personalized based on your goals and pantry items</p>
+</div>
+<button class="p-3 rounded-2xl glass-card hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-bento-gap">
+<div class="glass-card rounded-[32px] overflow-hidden group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Recipe 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A gourmet salmon fillet served with grilled asparagus and lemon slices on a dark, textured ceramic plate. The lighting is moody and dramatic, focusing on the texture of the fish and the vibrant greens. High-end food styling in a modern, dark kitchen setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ3abh1_3Zsw6sHDwVWKKMyNzMwbZ-Nra-BIUcBqfHKwGRqjxl8PGprB3FZRO6jOB7PEKBhaE-AaIwW8FGuQmpKKpYVAdmN10MYLkOG0ZJ_arLcBgvTkp2O6BcExmmBDLBPYTwfcoyBrYMueJSha_apusFvUH1y4Lu0zS5XEMtFY15OKhdVVf7dicjca2CVE9BnMFgmV3mQJ5y5cTO6ByrsJC6sbWwFN_ajFCVZpoECq6umUkRODOXzEhcL1DQGkiNYXn3tJXt1K9k"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-background/80 backdrop-blur-md rounded-full text-primary border border-white/10">
+<span class="font-label-caps">TOP PICK</span>
+</div>
+</div>
+<div class="p-6">
+<h5 class="font-bold text-lg mb-2">Honey Garlic Salmon</h5>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 20m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">local_fire_department</span> 340 cal</span>
+</div>
+<button class="w-full py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 font-bold transition-all text-primary">Get Recipe</button>
+</div>
+</div>
+<div class="glass-card rounded-[32px] overflow-hidden group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Recipe 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A refreshing green smoothie bowl topped with sliced kiwi, chia seeds, and fresh berries, presented in a minimalist ceramic bowl on a dark wood surface. Soft, natural morning light coming from the side creates a peaceful, sanctuary-like mood. Professional food blog aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChi9QyQ5zjLnB-zZYR8ZtOm81I14kGmiz4qYepHn6zrWQDxd_1L6UMxXnikv-XG1VAuqgtXNuNzZ03nXMSr6n16ce58D5a11bK9CZ988gNaXTbB3_cJMSjxezpx91jwIkBBEDL1gQm7CTQGPrF4buWv_7RVWRoeQnEmjwJw-ABIjl99MqYMd-vQQ_b6z2-5WyK3AWNoVWa1IR0wjHYolCSFGSKUhxFK3Y7Qyn3s0mpFe-kmd0SBuynY-x4hYZRtO3-lPUqf9v-xpJP"/>
+</div>
+<div class="p-6">
+<h5 class="font-bold text-lg mb-2">Morning Green Glow</h5>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 10m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">local_fire_department</span> 210 cal</span>
+</div>
+<button class="w-full py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 font-bold transition-all text-primary">Get Recipe</button>
+</div>
+</div>
+<div class="glass-card rounded-[32px] overflow-hidden group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Recipe 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A vibrant salad with roasted beets, goat cheese, and walnuts, drizzled with a balsamic glaze. The plate is minimalist and dark, emphasizing the rich purples and creamy whites of the food. Studio lighting highlights the glossy glaze and fresh textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_1vl0vcp0RgHrwdz9nWNS_Zdr9xTHRbOMCPF1SUn8kyv5yjcCneebmrQbc2P0npBnnAuaKsCALFMc2UnE3VhBUNmK5RCL1Sn_GnzfYZqHrtlfuOS1XlKONf7oCoUYpMartaqHmMTbBMr3_ccehV2UMoUobDjvYRM0DY1EkGfeMkKlqFec3K8CAq_sOJw_s9sfLk1goPSjBiZc5MqS0YQMG_C-H9YNfzYqMn1S2Z6jdzNyNl6e2RcQ-TYd4n36_mhpGpeVB_bVs4Gr"/>
+</div>
+<div class="p-6">
+<h5 class="font-bold text-lg mb-2">Roasted Beet Salad</h5>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 15m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">local_fire_department</span> 280 cal</span>
+</div>
+<button class="w-full py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 font-bold transition-all text-primary">Get Recipe</button>
+</div>
+</div>
+<div class="glass-card rounded-[32px] border-dashed border-white/10 flex flex-col items-center justify-center p-8 text-center group cursor-pointer hover:bg-white/5 transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+</div>
+<p class="font-bold text-lg mb-1">Generate New</p>
+<p class="text-on-surface-variant text-sm">Let Tera create something unique for you</p>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-bento-gap border-t border-white/5 bg-surface-container-lowest/50 py-12 px-glass-padding">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-lg" style="font-variation-settings: 'FILL' 1">spa</span>
+</div>
+<h1 class="font-headline-md text-xl text-primary tracking-tight">Tera</h1>
+</div>
+<p class="text-on-surface-variant max-w-xs">Your AI-powered sanctuary for a balanced, digital-first lifestyle. Harmonizing tech and wellness.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h6 class="font-label-caps text-white">SYSTEM</h6>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Neural Sync</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Data Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="font-label-caps text-white">COMMUNITY</h6>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Sanctuary Discord</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Local Meets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Co-working</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="font-label-caps text-white">CONNECT</h6>
+<div class="flex gap-4">
+<a class="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors" href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+<a class="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors" href="#"><span class="material-symbols-outlined text-lg">mail</span></a>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between text-xs text-on-surface-variant gap-4">
+<p>© 2024 Tera Sanctuary AI. Built for the future of humanity.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Terms</a>
+<a class="hover:text-white" href="#">Privacy</a>
+<a class="hover:text-white" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</main>
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-[60] glass-card border-t-0 rounded-t-3xl p-4 flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-caps">Growth</span>
+</a>
+<div class="w-14 h-14 -mt-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-xl shadow-primary/30 border-4 border-background">
+<span class="material-symbols-outlined text-on-primary-fixed" style="font-variation-settings: 'FILL' 1">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">spa</span>
+<span class="font-label-caps">Health</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-caps">Chat</span>
+</a>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const vitals = document.querySelectorAll('.h-full.bg-gradient-to-r, .h-full.bg-secondary, .h-full.bg-primary-container');
+            vitals.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    bar.style.width = width;
+                }, 500);
+            });
+
+            const cards = document.querySelectorAll('.glass-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700', 'ease-out');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>
